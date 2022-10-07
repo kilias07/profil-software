@@ -1,0 +1,10 @@
+@import "./partials/reset";
+@import "./partials/typography";
+
+@import "./partials/variables";
+@import "./partials/mixins";
+
+.dupa {
+  border: 5px solid $primary-yellow;
+}
+
