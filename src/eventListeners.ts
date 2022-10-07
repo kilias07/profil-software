@@ -1,6 +1,7 @@
-import { getHouseData } from "./getData";
-import { NavButtons } from "../types/types";
+import { extractData, getHouseData, sortData } from "./getData";
+import { HarryPotterHouses, NavButtons } from "../types/types";
 import { allData } from "./main";
+import { drawTable } from "./table";
 
 const allStudents: NavButtons = document.getElementById("all-students")!;
 const gryffindor: NavButtons = document.getElementById("gryffindor")!;
@@ -8,22 +9,19 @@ const slytherin: NavButtons = document.getElementById("slytherin")!;
 const hufflepuff: NavButtons = document.getElementById("hufflepuff")!;
 const ravenclaw: NavButtons = document.getElementById("ravenclaw")!;
 
+//ALL STUDENTS BTN
 allStudents.addEventListener("click", () => {
-  console.log(allData);
+  const extractedData = extractData(allData);
+  drawTable(extractedData);
 });
 
-gryffindor.addEventListener("click", () => {
-  console.log(getHouseData("gryffindor", allData));
-});
+//HOUSES BTN
+//FIXME CHANGE THIS INTO ENUM ITERATOR
+const arrHousesBtn = [gryffindor, slytherin, hufflepuff, ravenclaw];
 
-slytherin.addEventListener("click", () => {
-  console.log(getHouseData("slytherin", allData));
-});
-
-hufflepuff.addEventListener("click", () => {
-  console.log(getHouseData("hufflepuff", allData));
-});
-
-ravenclaw.addEventListener("click", () => {
-  console.log(getHouseData("ravenclaw", allData));
-});
+arrHousesBtn.map((houseBtn) =>
+  houseBtn.addEventListener("click", () => {
+    const houseData = getHouseData(houseBtn.id as HarryPotterHouses, allData);
+    sortData(houseData, "name", true);
+  })
+);

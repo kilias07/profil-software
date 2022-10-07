@@ -34,3 +34,8 @@ export interface ExtractedHarryPotterData {
   ancestry: string;
   "student/staff": boolean;
 }
+
+export type SortedTableData = Omit<
+  ExtractedHarryPotterData,
+  "wizard" | "ancestry" | "student/staff"
+>;

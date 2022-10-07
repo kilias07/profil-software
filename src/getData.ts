@@ -1,9 +1,13 @@
-import { ExtractedHarryPotterData, HarryPotterData } from "../types/api types";
+import {
+  ExtractedHarryPotterData,
+  HarryPotterData,
+  SortedTableData,
+} from "../types/api types";
 import { HarryPotterHouses } from "../types/types";
 import { drawTable } from "./table";
 
 export async function getData(): Promise<HarryPotterData[]> {
-  const url = "https://hp-api.onrender.com/api/characters/students";
+  const url = "https://hp-api.herokuapp.com/api/characters/students";
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
@@ -18,11 +22,9 @@ export function getHouseData(
   return data.filter((el) => el.house.toLowerCase() === harryPotterHouse);
 }
 
-export function sortData() {}
-
 export function extractData(
   data: HarryPotterData[]
-): void | ExtractedHarryPotterData[] {
+): ExtractedHarryPotterData[] {
   const extractedData = data.map(
     ({
       name,
@@ -45,4 +47,15 @@ export function extractData(
   );
   drawTable(extractedData);
   return extractedData;
+}
+
+export function sortData(
+  data: HarryPotterData[],
+  prop: keyof SortedTableData,
+  isAsc: boolean
+) {
+  const sortedData = data.sort(
+    (a, b) => (a[prop] < b[prop] ? -1 : 1) * (isAsc ? 1 : -1)
+  );
+  extractData(sortedData);
 }
