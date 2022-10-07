@@ -4,7 +4,31 @@
 @import "./partials/variables";
 @import "./partials/mixins";
 
-.dupa {
-  border: 5px solid $primary-yellow;
+section {
+  display: flex;
+  justify-content: center;
 }
 
+tbody {
+  text-align: center;
+}
+
+th {
+  margin: 0 30px 0 20px;
+  width: 100px
+}
+
+thead {
+  height: 60px;
+}
+
+tr {
+  height: 50px;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 50px;
+  gap: 30px;
+}
