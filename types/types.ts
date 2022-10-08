@@ -20,3 +20,7 @@ export type HarryPotterHouses =
   | "ravenclaw";
 
 export type ButtonsNames = "AllStudents" | HarryPotterHouses | "Favorites";
+
+export type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+};

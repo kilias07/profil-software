@@ -62,4 +62,8 @@ svg {
   width: 20px;
   padding-left: 5px;
   vertical-align: middle;
+  cursor: pointer;
+}
+.active {
+  transform: rotate(180deg);
 }

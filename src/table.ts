@@ -18,7 +18,7 @@ export function drawTable(extractedData: ExtractedHarryPotterData[]) {
   if (tableBody.childElementCount === 0) drawTBody(extractedData);
 }
 
-function drawTHead(extractedData: ExtractedHarryPotterData[]) {
+function drawTHead(extractedData: ExtractedHarryPotterData[]): void {
   if (extractedData.length > 0) {
     const rowHeaderElement = document.createElement("tr");
     for (const cellHeadText in extractedData[0]) {
@@ -41,7 +41,7 @@ function drawTHead(extractedData: ExtractedHarryPotterData[]) {
   }
 }
 
-function drawTBody(extractedData: ExtractedHarryPotterData[]) {
+function drawTBody(extractedData: ExtractedHarryPotterData[]): void {
   if (extractedData.length > 0) {
     for (const char of extractedData) {
       const rowBodyElement = document.createElement("tr");
@@ -56,6 +56,6 @@ function drawTBody(extractedData: ExtractedHarryPotterData[]) {
   }
 }
 
-function clearTable() {
+function clearTable(): void {
   tableBody.innerHTML = "";
 }

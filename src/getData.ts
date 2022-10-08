@@ -4,7 +4,6 @@ import {
   SortedTableData,
 } from "../types/api types";
 import { HarryPotterHouses } from "../types/types";
-import { drawTable } from "./table";
 
 export async function getData(): Promise<HarryPotterData[]> {
   const url = "https://hp-api.herokuapp.com/api/characters/students";
@@ -17,7 +16,7 @@ export async function getData(): Promise<HarryPotterData[]> {
 
 export function getHouseData(
   harryPotterHouse: HarryPotterHouses,
-  data: HarryPotterData[]
+  data: ExtractedHarryPotterData[]
 ) {
   return data.filter((el) => el.house.toLowerCase() === harryPotterHouse);
 }
@@ -25,7 +24,7 @@ export function getHouseData(
 export function extractData(
   data: HarryPotterData[]
 ): ExtractedHarryPotterData[] {
-  const extractedData = data.map(
+  return data.map(
     ({
       name,
       dateOfBirth,
@@ -45,17 +44,23 @@ export function extractData(
       };
     }
   );
-  drawTable(extractedData);
-  return extractedData;
 }
 
 export function sortData(
-  data: HarryPotterData[],
+  data: ExtractedHarryPotterData[],
   prop: keyof SortedTableData,
   isAsc: boolean
 ) {
-  const sortedData = data.sort(
-    (a, b) => (a[prop] < b[prop] ? -1 : 1) * (isAsc ? 1 : -1)
-  );
-  extractData(sortedData);
+  return data.sort((a, b) => (a[prop] < b[prop] ? -1 : 1) * (isAsc ? 1 : -1));
 }
+
+//TODO FINISH THIS FUNC
+export function getSortedData(event: Event) {
+  (event.currentTarget as HTMLElement).classList.toggle("active");
+  // const id = (event.currentTarget as HTMLElement).id;
+  // resetState(id);
+}
+
+// function resetState(exclude: string): void {
+// sortBtns.forEach((el) => el.id !== exclude && el.classList.remove("active"));
+// }

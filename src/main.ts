@@ -1,10 +1,38 @@
 import "./sass/main.scss";
-import "./components/Layout/navBar";
-import { getData } from "./getData";
+import { getData, getHouseData, getSortedData } from "./getData";
 import { extractData } from "./getData";
-import "./eventListeners";
+import { drawTable } from "./table";
+import { HarryPotterHouses } from "../types/types";
+import { allStudents, arrHousesBtn } from "./constans";
+import { waitForElement } from "./helper";
 
-//ALL DATA ONCE FETCHED ON FIRST LOADING PAGE
-export const allData = await getData();
-//RENDER ALL DATA AS DEFAULT
-extractData(allData);
+(async function updateTree() {
+  //FETCH ALL DATA
+  const allData = await getData();
+
+  //EXTRACT DATA TO ONLY NEEDED COLUMNS
+  const extractedData = extractData(allData);
+
+  //INITIAL DRAW TABLE
+  drawTable(extractedData);
+
+  //ALL STUDENT BTN HANDLER
+  allStudents.addEventListener("click", () => {
+    drawTable(extractedData);
+  });
+
+  //HOUSES BTNS HANDLERS
+  arrHousesBtn.map((houseBtn) =>
+    houseBtn.addEventListener("click", () => {
+      const houseData = getHouseData(
+        houseBtn.id as HarryPotterHouses,
+        extractedData
+      );
+      drawTable(houseData);
+    })
+  );
+
+  //ADD LISTENERS TO SORTING BTNS
+  const sortBtns = await waitForElement('[id^="sort"]');
+  sortBtns.forEach((btn) => btn.addEventListener("click", getSortedData));
+})();
