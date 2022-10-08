@@ -1,4 +1,5 @@
 import { ExtractedHarryPotterData } from "../types/api types";
+import { arrowDown, createElement } from "./icons";
 
 const tableHead: HTMLElement = document.getElementById("data-thead")!;
 const tableBody: HTMLElement = document.getElementById("data-tbody")!;
@@ -26,6 +27,17 @@ function drawTHead(extractedData: ExtractedHarryPotterData[]) {
       rowHeaderElement.appendChild(cellHeadElement);
     }
     tableHead.appendChild(rowHeaderElement);
+
+    //SORT ICONS
+    rowHeaderElement.childNodes.forEach((nodeEl, i) => {
+      if (i < 3) {
+        const svgSortIcon = createElement(
+          arrowDown,
+          "sort-" + nodeEl.textContent!
+        );
+        nodeEl.appendChild(svgSortIcon);
+      }
+    });
   }
 }
 

@@ -7,27 +7,37 @@
 section {
   display: flex;
   justify-content: center;
+  width: 900px;
+  height: 827px;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+
 table {
-  height: 900px;
+  height: 100%;
   overflow-y: scroll;
-  width: 700px;
-  display: block;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
 }
 tbody {
   text-align: center;
 }
 
 th {
+  position: sticky;
+  top: -1px;
+  background-color: lightgray;
+  justify-content: center;
   margin: 0 30px 0 20px;
   vertical-align: middle;
-  padding: 20px;
 }
 
 thead {
   height: 60px;
-  width: 100%;
+
 }
 
 tr {
@@ -46,4 +56,10 @@ ul {
   justify-content: center;
   margin: 50px 0 50px;
   gap: 30px;
+}
+
+svg {
+  width: 20px;
+  padding-left: 5px;
+  vertical-align: middle;
 }
