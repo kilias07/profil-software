@@ -1,8 +1,6 @@
 import { ExtractedHarryPotterData } from "../types/api types";
-import { arrowDown, createElement } from "./icons";
-
-const tableHead: HTMLElement = document.getElementById("data-thead")!;
-const tableBody: HTMLElement = document.getElementById("data-tbody")!;
+import { arrowIcon, createElement } from "./icons";
+import { tableBody, tableHead } from "./constans";
 
 export function drawTable(extractedData: ExtractedHarryPotterData[]) {
   //THEAD
@@ -32,7 +30,7 @@ function drawTHead(extractedData: ExtractedHarryPotterData[]): void {
     rowHeaderElement.childNodes.forEach((nodeEl, i) => {
       if (i < 3) {
         const svgSortIcon = createElement(
-          arrowDown,
+          arrowIcon,
           "sort-" + nodeEl.textContent!
         );
         nodeEl.appendChild(svgSortIcon);
@@ -54,6 +52,11 @@ function drawTBody(extractedData: ExtractedHarryPotterData[]): void {
       tableBody.appendChild(rowBodyElement);
     }
   }
+}
+
+export function sortTBody(extractedData: ExtractedHarryPotterData[]): void {
+  clearTable();
+  drawTBody(extractedData);
 }
 
 function clearTable(): void {

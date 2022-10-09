@@ -32,7 +32,7 @@ export interface ExtractedHarryPotterData {
   house: string;
   wizard: boolean;
   ancestry: string;
-  "student/staff": boolean;
+  "student/staff": string;
 }
 
 export type SortedTableData = Omit<

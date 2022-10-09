@@ -10,3 +10,7 @@ const ravenclaw: NavButtons = document.getElementById("ravenclaw")!;
 //HOUSES BTNS
 //FIXME CHANGE THIS INTO ENUM ITERATOR
 export const arrHousesBtn = [gryffindor, slytherin, hufflepuff, ravenclaw];
+
+//TABLE
+export const tableHead: HTMLElement = document.getElementById("data-thead")!;
+export const tableBody: HTMLElement = document.getElementById("data-tbody")!;

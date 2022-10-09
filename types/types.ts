@@ -1,3 +1,5 @@
+import { ExtractedHarryPotterData } from "./api types";
+
 type AllStudents = HTMLElement;
 type Gryffindor = HTMLElement;
 type Slytherin = HTMLElement;
@@ -24,3 +26,8 @@ export type ButtonsNames = "AllStudents" | HarryPotterHouses | "Favorites";
 export type HTMLElementEvent<T extends HTMLElement> = Event & {
   target: T;
 };
+
+export interface State {
+  sort: null | ("asc" | "desc");
+  actualDataHouse: null | ExtractedHarryPotterData[];
+}

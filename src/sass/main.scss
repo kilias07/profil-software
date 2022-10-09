@@ -4,10 +4,8 @@
 @import "./partials/variables";
 @import "./partials/mixins";
 
-section {
-  display: flex;
-  justify-content: center;
-  width: 900px;
+main {
+  width: 1000px;
   height: 827px;
   overflow-y: scroll;
   margin-left: auto;
@@ -51,7 +49,7 @@ td {
   vertical-align: middle;
 }
 
-ul {
+.dupa > ul {
   display: flex;
   justify-content: center;
   margin: 50px 0 50px;
@@ -66,4 +64,12 @@ svg {
 }
 .active {
   transform: rotate(180deg);
+}
+
+.modal {
+  top: 30%;
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-color: white;
 }
