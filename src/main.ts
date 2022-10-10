@@ -54,9 +54,12 @@ import { openModal } from "./modal";
   );
 
   //ADD LISTENERS TO EACH ROW IN TABLE
-  const tableRow = await waitForElement("#data-tbody > tr");
-  tableRow.forEach(
-    (row) => row.addEventListener("click", openModal.bind({ allData })),
-    false
-  );
+  async function rowListener() {
+    const tableRow = await waitForElement("#data-tbody > tr");
+    tableRow.forEach(
+      (row) => row.addEventListener("click", openModal.bind({ allData })),
+      false
+    );
+  }
+  await rowListener();
 })();

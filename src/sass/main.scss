@@ -1,58 +1,30 @@
+//INIT
 @import "./partials/reset";
 @import "./partials/typography";
 
+//ABSTRACT
 @import "./partials/variables";
 @import "./partials/mixins";
 
-main {
-  width: 1000px;
-  height: 827px;
-  overflow-y: scroll;
-  margin-left: auto;
-  margin-right: auto;
+@import "./partials/loader";
+
+//SITE
+@import "./partials/home";
+@import "./partials/favorites";
+
+
+//COMPONENTS
+@import "./partials/_modal.scss";
+@import "./partials/_table.scss";
+
+body {
+  background-color: #434E81;
 }
 
-
-table {
-  height: 100%;
-  overflow-y: scroll;
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-}
-tbody {
-  text-align: center;
-}
-
-th {
-  position: sticky;
-  top: -1px;
-  background-color: lightgray;
-  justify-content: center;
-  margin: 0 30px 0 20px;
-  vertical-align: middle;
-}
-
-thead {
-  height: 60px;
-
-}
-
-tr {
-  height: 50px;
-  border: 1px solid red;
-  padding: 20px;
-
-}
-
-td {
-  vertical-align: middle;
-}
-
-.dupa > ul {
+.navbar > ul {
   display: flex;
   justify-content: center;
-  margin: 50px 0 50px;
+  margin:0 0 50px;
   gap: 30px;
 }
 
@@ -64,12 +36,4 @@ svg {
 }
 .active {
   transform: rotate(180deg);
-}
-
-.modal {
-  top: 30%;
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background-color: white;
 }

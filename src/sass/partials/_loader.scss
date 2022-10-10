@@ -1,0 +1,21 @@
+.loader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  object-position: center;
+  object-fit: none;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-image:
+  radial-gradient(ellipse at 0% 20%, red 30%, transparent 60%),
+  radial-gradient(ellipse at 100% 10%, green 30%, transparent 60%),
+  radial-gradient(ellipse at 100% 85%, blue 30%, transparent 60%),
+  radial-gradient(ellipse at 0% 90%, yellow 30%, transparent 60%);
+  background-blend-mode: screen;
+}

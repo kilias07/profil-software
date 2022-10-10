@@ -8,36 +8,41 @@
     <script defer type="module" src="/src/main.ts"></script>
 </head>
 <body>
-<nav class="dupa">
-    <ul>
-        <li>
-            <button id="all-students">All students</button>
-        </li>
-        <li>
-            <button id="gryffindor">Gryffindor</button>
-        </li>
-        <li>
-            <button id="slytherin">Slytherin</button>
-        </li>
-        <li>
-            <button id="hufflepuff">Hufflepuff</button>
-        </li>
-        <li>
-            <button id="ravenclaw">Ravenclaw</button>
-        </li>
-        <li>
-            <button id="favorites">Favorites</button>
-        </li>
-    </ul>
-</nav>
-<main>
-    <table id="main-table">
-        <caption>Harry Potter characters info</caption>
-        <thead id="data-thead">
-        </thead>
-        <tbody id="data-tbody">
-        </tbody>
-    </table>
-</main>
+<div class="wrap">
+    <img class="loader" id="loader" alt="site Loader HP app" src="./allHPhouses.webp">
+    <nav class="navbar">
+        <ul>
+            <li>
+                <button id="all-students">All students</button>
+            </li>
+            <li>
+                <button id="gryffindor">Gryffindor</button>
+            </li>
+            <li>
+                <button id="slytherin">Slytherin</button>
+            </li>
+            <li>
+                <button id="hufflepuff">Hufflepuff</button>
+            </li>
+            <li>
+                <button id="ravenclaw">Ravenclaw</button>
+            </li>
+            <li>
+                <button id="favorites">Favorites</button>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="main-table__container">
+        <table id="main-table">
+            <caption>Harry Potter characters info</caption>
+            <thead id="data-thead">
+            </thead>
+            <tbody id="data-tbody">
+            </tbody>
+        </table>
+        </div>
+    </main>
+</div>
 </body>
 </html>

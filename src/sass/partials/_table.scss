@@ -1,0 +1,98 @@
+@import "variables";
+
+main {
+  border-radius: 12px;
+  width: 1000px;
+  height: 827px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  position: relative;
+  bottom: 0;
+  color: lightgray;
+
+  & > .main-table__container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    border-radius: 6rem;
+  }
+
+  & > .main-table__container::-webkit-scrollbar-thumb {
+    background: rgb(255, 32, 0);
+    background: linear-gradient(180deg, rgba(255, 32, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    border: 4px solid transparent;
+    border-radius: 12px;
+    background-clip: padding-box;
+  }
+
+  & > .main-table__container::-webkit-scrollbar {
+    width: 14px;
+    max-height: 50%;
+  }
+
+  & > .main-table__container::-webkit-scrollbar-track {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+
+#main-table {
+  height: 100%;
+  overflow-y: scroll;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+
+  caption {
+    font-family: "haryp", sans-serif;
+    font-size: 5rem;
+  }
+
+  thead tr th:first-child,
+  tbody tr td:first-child {
+    width: 14em;
+    word-break: break-all;
+  }
+
+  thead {
+    height: 70px;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    & th {
+      background-color: #171B2CFF;
+      position: sticky;
+      top: -1px;
+      margin: 0 30px 0 20px;
+      vertical-align: middle;
+    }
+  }
+
+
+  tbody {
+    text-align: center;
+    font-size: 1.1rem;
+
+
+    & tr {
+      height: 50px;
+      padding: 20px;
+    }
+
+    & tr:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    & tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    & td {
+      vertical-align: middle;
+    }
+  }
+}
+
+
