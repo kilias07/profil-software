@@ -10,6 +10,7 @@ export async function openModal(
     .textContent;
   const charData = this.allData.find((el) => el.name === name);
   const modal = createModal(charData!);
+  favoriteHandler(charData!);
   await exitModal(modal);
 }
 
@@ -17,7 +18,7 @@ function createModal(charData: HarryPotterData): HTMLElement {
   const modal = document.createElement("div");
   modal.innerHTML = modalTemplate(charData);
   modal.className = "modal open";
-  document.querySelector("main")!.appendChild(modal);
+  document.querySelector("body")!.appendChild(modal);
   return modal;
 }
 
@@ -82,6 +83,10 @@ function modalTemplate(charData: HarryPotterData): string {
                 </ul>
             </li>
         </ul>
+        <div id="fav-btn">
+        <button id="fav-add">add to favorite</button>
+        <button id="fav-remove">remove from favorites</button>
+</div>
     </div>
     <div>
         <img alt="${charData.name}" src="${charData.image}"/>
@@ -93,4 +98,44 @@ function modalTemplate(charData: HarryPotterData): string {
     </svg>
 
 </div>`;
+}
+
+function favoriteHandler(charData: HarryPotterData) {
+  const addBtn = document.getElementById("fav-add") as HTMLButtonElement;
+  const removeBtn = document.getElementById("fav-remove") as HTMLButtonElement;
+  addBtn!.disabled = checkFavorite(charData.name);
+  removeBtn!.disabled = !checkFavorite(charData.name);
+
+  addBtn!.addEventListener("click", () => {
+    addFavorite(charData);
+    addBtn!.disabled = checkFavorite(charData.name);
+    removeBtn!.disabled = !checkFavorite(charData.name);
+  });
+  removeBtn!.addEventListener("click", () => {
+    removeFavorite(charData.name);
+    addBtn!.disabled = checkFavorite(charData.name);
+    removeBtn!.disabled = !checkFavorite(charData.name);
+  });
+}
+
+function addFavorite(charData: HarryPotterData): void {
+  if (!checkFavorite(charData.name)) {
+    localStorage.setItem(charData.name, JSON.stringify(charData));
+  }
+}
+
+function checkFavorite(key: string): boolean {
+  return !!localStorage.getItem(key);
+}
+
+export function countAllFavorites(): number {
+  return Object.keys(localStorage).length;
+}
+
+function removeFavorite(key: string): void {
+  checkFavorite(key) && localStorage.removeItem(key);
+}
+
+function removeAllFavorites(): void {
+  localStorage.clear();
 }

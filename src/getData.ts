@@ -48,9 +48,6 @@ export function sortData(
 ): void {
   if (prop === "dateOfBirth") {
     const sortData = data.sort((a, b) => {
-      // if (a[prop].length > 0) {
-      //
-      // }
       return (a[prop] < b[prop] ? -1 : 1) * (isAsc ? 1 : -1);
     });
     sortTBody(sortData);

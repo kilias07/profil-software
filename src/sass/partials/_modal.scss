@@ -43,7 +43,6 @@
     background: none;
     border: 0;
     font-weight: bold;
-    cursor: pointer;
   }
 
 
@@ -53,6 +52,8 @@
     background-repeat: no-repeat;
     background-position: 20% -5%;
     background-size: 105%;
+    color: lightgray;
+
     & h1 {
       text-align: center;
       font-size: 2rem;
@@ -61,22 +62,22 @@
   }
 
   & .Gryffindor {
-    background-color: black;
+    background-color: #4f0000;
     background-image: url("../modal-gryffindor.webp");
   }
 
   & .Slytherin {
-    background-color: green;
+    background-color: #154a13;
     background-image: url("../modal-slytherin.webp");
   }
 
   & .Ravenclaw {
-    background-color: blue;
+    background-color: #0d202c;
     background-image: url("../modal-ravenclaw.webp");
   }
 
   & .Hufflepuff {
-    background-color: yellow;
+    background-color: rgb(77, 45, 3);
     background-image: url("../modal-hufflepuff.webp");
   }
 
@@ -91,6 +92,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
+
   & div > img {
     position: relative;
     top: -1rem;

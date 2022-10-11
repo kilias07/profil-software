@@ -16,6 +16,8 @@ import { openModal } from "./modal";
 
   //INITIAL DRAW TABLE
   drawTable(extractedData);
+  //INITIAL TURN ON MODAL ON EVERY ROW
+  await rowListener();
 
   //STATE
   const state: State = {
@@ -29,6 +31,7 @@ import { openModal } from "./modal";
   allStudents.addEventListener("click", () => {
     state.actualDataHouse = extractedData;
     drawTable(extractedData);
+    rowListener();
   });
 
   //HOUSES BTNS HANDLERS
@@ -40,18 +43,22 @@ import { openModal } from "./modal";
       );
       state.actualDataHouse = houseData;
       drawTable(houseData);
+      rowListener();
     })
   );
 
   //ADD LISTENERS TO SORTING BTNS
   const sortBtns = await waitForElement('[id^="sort"]');
-  sortBtns.forEach((btn) =>
+  sortBtns.forEach((btn) => {
     btn.addEventListener(
       "click",
-      getSortedData.bind({ sortBtns, state }),
+      (event) => {
+        getSortedData.bind({ sortBtns, state })(event);
+        rowListener();
+      },
       false
-    )
-  );
+    );
+  });
 
   //ADD LISTENERS TO EACH ROW IN TABLE
   async function rowListener() {
@@ -61,5 +68,4 @@ import { openModal } from "./modal";
       false
     );
   }
-  await rowListener();
 })();
