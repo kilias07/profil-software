@@ -1,20 +1,36 @@
 .modal {
+  position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: indianred;
-  top: 0;
-  left: 0;
-  position: fixed;
   opacity: 0;
   visibility: hidden;
+  transition: all 0.3s ease;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 999;
 
   &.open {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
+  }
+
+  &-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-container {
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+    padding: 30px;
+    width: 40rem;
+    height: 40rem;
   }
 
   &-close {
@@ -28,5 +44,59 @@
     border: 0;
     font-weight: bold;
     cursor: pointer;
+  }
+
+
+  & > div {
+    border-radius: 1rem;
+    padding: 1rem;
+    background-repeat: no-repeat;
+    background-position: 20% -5%;
+    background-size: 105%;
+    & h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  & .Gryffindor {
+    background-color: black;
+    background-image: url("../modal-gryffindor.webp");
+  }
+
+  & .Slytherin {
+    background-color: green;
+    background-image: url("../modal-slytherin.webp");
+  }
+
+  & .Ravenclaw {
+    background-color: blue;
+    background-image: url("../modal-ravenclaw.webp");
+  }
+
+  & .Hufflepuff {
+    background-color: yellow;
+    background-image: url("../modal-hufflepuff.webp");
+  }
+
+  & svg {
+    width: 2rem;
+  }
+
+}
+
+
+.data-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  & div > img {
+    position: relative;
+    top: -1rem;
+    width: 14rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 1rem;
   }
 }
