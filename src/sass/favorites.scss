@@ -1,0 +1,11 @@
+//INIT
+@import "./partials/reset";
+@import "./partials/typography";
+
+//ABSTRACT
+@import "./partials/variables";
+@import "./partials/mixins";
+
+@import "./partials/favorites";
+
+@import "./partials/_card.scss";

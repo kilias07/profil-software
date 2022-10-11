@@ -1,5 +1,7 @@
-import { getData } from "./getData";
+import { createCard } from "./favoriteCard";
+import { getAllFavorites } from "./localStorage";
 
 (async function updateTree() {
-  const allData = await getData();
+  const allData = getAllFavorites();
+  createCard(allData);
 })();

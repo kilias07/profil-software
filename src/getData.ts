@@ -5,7 +5,6 @@ import {
 } from "../types/api types";
 import { HarryPotterHouses, State } from "../types/types";
 import { sortTBody } from "./table";
-import { loader } from "./constans";
 
 export async function getData(): Promise<HarryPotterData[]> {
   const url = "https://hp-api.herokuapp.com/api/characters/students";
@@ -13,7 +12,6 @@ export async function getData(): Promise<HarryPotterData[]> {
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-  loader.remove();
   return await response.json();
 }
 
@@ -40,6 +38,7 @@ export function extractData(
     }
   );
 }
+
 //TODO FIX SORTING INCLUDING EMPTY CELLS
 export function sortData(
   data: ExtractedHarryPotterData[],
