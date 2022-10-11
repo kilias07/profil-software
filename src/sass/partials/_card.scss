@@ -2,16 +2,20 @@ main {
   @extend .container;
 
   #card-container {
-    display: flex;
     gap: 2rem;
-    flex-wrap: wrap;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
 
   .card {
     box-shadow: 8px 8px 24px 3px rgba(72, 72, 73, 1);
     border-radius: 1rem;
     overflow: hidden;
-    width: 20rem;
+    width: 15rem;
     height: 12rem;
     background-color: darkgray;
 

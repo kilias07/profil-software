@@ -26,3 +26,18 @@ export function createCard(data: HarryPotterData[]) {
     });
   }
 }
+
+export function changeNumberInRow() {
+  const selector = document.getElementById(
+    "change-row-number"
+  ) as HTMLSelectElement;
+
+  selector.addEventListener("change", () => {
+    const containerCard = document.getElementById("card-container");
+    let fraction = [];
+    for (let i = 0; i < +selector.value; i++) {
+      fraction.push("1fr");
+    }
+    containerCard!.style.gridTemplateColumns = fraction.join(" ");
+  });
+}
