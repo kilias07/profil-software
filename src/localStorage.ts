@@ -33,12 +33,15 @@ export function countAllFavorites(): number {
   return Object.keys(localStorage).length;
 }
 
-export function getAllFavorites() {
-  const keys = Object.keys(localStorage);
-  return keys.reduce<HarryPotterData[]>((acc, key) => {
-    const test = JSON.parse(localStorage.getItem(key)!);
-    return [...acc, test];
-  }, []);
+export function getAllFavorites(): HarryPotterData[] | null {
+  if (countAllFavorites()) {
+    const keys = Object.keys(localStorage);
+    return keys.reduce<HarryPotterData[]>((acc, key) => {
+      const test = JSON.parse(localStorage.getItem(key)!);
+      return [...acc, test];
+    }, []);
+  }
+  return null;
 }
 
 export function removeFavorite(key: string): void {

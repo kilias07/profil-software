@@ -1,0 +1,14 @@
+nav {
+  @extend .container;
+  margin-left: auto;
+  margin-right: auto;
+
+  & a {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: lightgray;
+    text-decoration: none;
+    margin: 3rem;
+    display: block;
+  }
+}

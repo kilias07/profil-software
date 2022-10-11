@@ -1,0 +1,51 @@
+main {
+  @extend .container;
+
+  #card-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    box-shadow: 8px 8px 24px 3px rgba(72, 72, 73, 1);
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 28rem;
+    height: 16rem;
+    background-color: darkgray;
+
+    .card-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+
+      & > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    button {
+      height: fit-content;
+      background-color: darkslateblue;
+      padding: .5rem 1rem;
+      color: lightgrey;
+      text-transform: uppercase;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      width: 10rem;
+      height: 14rem;
+      border-radius: 1rem;
+    }
+  }
+}
